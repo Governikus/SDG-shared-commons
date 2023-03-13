@@ -9,7 +9,9 @@ This content is licensed under the MIT license.
 
 ## Contact
 
-TODO contact points
+Governikus GmbH & Co. KG
+Hochschulring 4
+28359 Bremen
 
 ## Glossary
 
