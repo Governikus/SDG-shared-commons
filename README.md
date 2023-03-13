@@ -10,7 +10,9 @@ This content is licensed under the MIT license.
 ## Contact
 
 Governikus GmbH & Co. KG
+
 Hochschulring 4
+
 28359 Bremen
 
 ## Glossary
