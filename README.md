@@ -5,7 +5,7 @@ That includes components for an SDG Connector as a component to perform eDeliver
 
 ## License
 
-TODO license information
+This content is licensed under the MIT license.
 
 ## Contact
 
