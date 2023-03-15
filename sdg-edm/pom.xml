@@ -57,8 +57,12 @@
       <artifactId>ph-jaxb</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.helger</groupId>
-      <artifactId>ph-regrep</artifactId>
+      <groupId>com.helger.commons</groupId>
+      <artifactId>ph-jaxb-adapter</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.helger.schematron</groupId>
+      <artifactId>ph-schematron-xslt</artifactId>
     </dependency>
     
     <!-- Test only -->
@@ -118,20 +122,6 @@
             <arg>-Xph-cloneable2</arg>
             <arg>-Xph-value-extender</arg>
           </args>
-          <episodes>
-            <episode>
-              <groupId>com.helger.xsd</groupId>
-              <artifactId>ph-xsds-ccts-cct-schemamodule</artifactId>
-            </episode>
-            <episode>
-              <groupId>com.helger.xsd</groupId>
-              <artifactId>ph-xsds-xlink</artifactId>
-            </episode>
-            <episode>
-              <groupId>com.helger</groupId>
-              <artifactId>ph-regrep</artifactId>
-            </episode>
-          </episodes>
         </configuration>
         <dependencies>
           <dependency>
@@ -141,6 +131,24 @@
           </dependency>
         </dependencies>
       </plugin>
+      <!-- Enable only if Schematron files change
+      <plugin>
+        <groupId>com.helger.maven</groupId>
+        <artifactId>ph-schematron-maven-plugin</artifactId>
+        <version>${ph-schematron.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>convert</goal>
+            </goals>
+            <configuration>
+              <schematronDirectory>${basedir}/src/test/resources/schematron</schematronDirectory>
+              <xsltDirectory>${basedir}/src/main/resources/xslt</xsltDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      -->
     </plugins>
   </build>
 </project>

@@ -1,4 +1,4 @@
-package com.governikus.sdg.edm;
+package com.governikus.sdg.edm.jaxb;
 
 import com.governikus.sdg.edm.jaxb.ObjectFactory;
 import com.governikus.sdg.edm.jaxb.PersonType;

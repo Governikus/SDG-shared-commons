@@ -1,12 +1,15 @@
-package com.governikus.sdg.edm;
+package com.governikus.sdg.edm.jaxb;
 
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import com.governikus.sdg.edm.jaxb.PersonType;
-
-public class PersonMarshallerTest
+/**
+ * Test class for class {@link PersonMarshaller}.
+ *
+ * @author Philip Helger
+ */
+public final class PersonMarshallerTest
 {
   @Test
   public void testBasic ()

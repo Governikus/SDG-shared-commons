@@ -1,5 +1,6 @@
 package com.governikus.sdg.edm;
 
+import javax.annotation.Nonnull;
 import javax.annotation.concurrent.Immutable;
 
 @Immutable
@@ -12,4 +13,10 @@ public final class CSdgEdm
 
   private CSdgEdm ()
   {}
+
+  @Nonnull
+  public static ClassLoader getCL ()
+  {
+    return CSdgEdm.class.getClassLoader ();
+  }
 }
