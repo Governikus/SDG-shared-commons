@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<query:QueryResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:4.0"
+    xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0"
+    xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0"
+    xmlns:sdg="http://data.europa.eu/p4s"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    requestId="c4369c4d-740e-4b64-80f0-7b209a66d629"
+    status="urn:oasis:names:tc:ebxml-regrep:ResponseStatusType:Failure">
+    
+    <!-- Additional elements describing the response -->
+    
+    <rs:Exception xsi:type="rs:ObjectNotFoundExceptionType" severity="FAILURE"
+        message="The query requires the included extra attributes to be provided by the user."
+        code="DSD:ERR:0005">
+        
+        <!-- Jurisdiction Mapping Requests -->
+        <rim:Slot name="JurisdictionDetermination">
+            <rim:SlotValue xsi:type="rim:AnyValueType">
+                <sdg:EvidenceProviderJurisdictionDetermination>
+                    <sdg:JurisdictionContextId>CompanyHq</sdg:JurisdictionContextId>
+                    <sdg:JurisdictionContext>Company Headquarters location</sdg:JurisdictionContext>
+                    <sdg:JurisdictionLevel>https://sr.ec.europa.eu/codelist/locationLevel/NUTS2</sdg:JurisdictionLevel>
+                </sdg:EvidenceProviderJurisdictionDetermination>
+            </rim:SlotValue>
+        </rim:Slot>
+        
+        <!-- Evidence Provider Classification Scheme -->
+        <rim:Slot name="UserRequestedClassificationConcepts">
+            <rim:SlotValue xsi:type="rim:CollectionValueType">
+                <rim:Element xsi:type="rim:AnyValueType">
+                    <sdg:EvidenceProviderClassification>
+                            <sdg:Identifier>TypeOfInsurance</sdg:Identifier>
+                            <sdg:Type>Codelist</sdg:Type>
+                            <sdg:ValueExpression>http://sr.europa.eu/codelists/insuranceType</sdg:ValueExpression>
+                            <sdg:Description lang="en">Type of insurance</sdg:Description>                
+                    </sdg:EvidenceProviderClassification>
+                </rim:Element>    
+            </rim:SlotValue>
+        </rim:Slot>
+    </rs:Exception>
+</query:QueryResponse>
+

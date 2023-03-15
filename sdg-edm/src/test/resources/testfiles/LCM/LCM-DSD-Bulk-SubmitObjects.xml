@@ -1,0 +1,100 @@
+<lcm:SubmitObjectsRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:4.0"
+    xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0"
+    xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0"
+    xmlns:lcm="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:4.0"
+    xmlns:sdg="http://data.europa.eu/p4s"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    id="f7dc04fe-337c-4523-85c7-35a7ab95bbac">
+    
+    <rim:RegistryObjectList>
+        <!-- This is the registry object for Evidence Provider A -->
+        <rim:RegistryObject id="urn:uuid:a1be6e74-bbbb-4444-b04c-0376f367b8fd">
+            
+            <!-- The actual Evidence Provider Structure -->
+            <rim:Slot name="EvidenceProvider">
+                <rim:SlotValue xsi:type="rim:AnyValueType">
+                    <sdg:AccessService xmlns:sdg="http://data.europa.eu/p4s">
+                        <sdg:Identifier schemeID="urn:oasis:names:tc:ebcore:partyid-type:iso6523:0060">8889909099
+                        </sdg:Identifier>
+                        <sdg:ConformsTo>oots:edm-v1.0</sdg:ConformsTo>
+                        
+                        <sdg:Publisher>
+                            <!-- The Evidence Provider Information -->
+                            <sdg:Identifier schemeID="1204">11231112313</sdg:Identifier>
+                            <sdg:Name>Example Organization</sdg:Name>
+                            
+                            <sdg:Address>
+                                <sdg:AdminUnitLevel1>MS</sdg:AdminUnitLevel1>
+                                <!-- NUTS Code -->
+                                <sdg:AdminUnitLevel2>MS77</sdg:AdminUnitLevel2>
+                            </sdg:Address>
+                            
+                            <sdg:Jurisdiction>
+                                <sdg:AdminUnitLevel1>MS</sdg:AdminUnitLevel1>
+                                <!-- NUTS Code -->
+                                <sdg:AdminUnitLevel2>MS77</sdg:AdminUnitLevel2>
+                            </sdg:Jurisdiction>
+                            
+                            <sdg:ClassificationConcept>
+                                <sdg:Identifier>TypeOfInsurance</sdg:Identifier>
+                                <sdg:SupportedValue>
+                                    <sdg:StringValue>private</sdg:StringValue>
+                                </sdg:SupportedValue>
+                            </sdg:ClassificationConcept>
+                            
+                        </sdg:Publisher>
+                    </sdg:AccessService>
+                </rim:SlotValue>
+            </rim:Slot>
+            <rim:Classification id="urn:uuid:a1be6e74-abcd-1234-b04c-0376f367b8fd"
+                classificationScheme="urn:fdc:oots:classification:dsd"
+                classificationNode="EvidenceProvider"/>
+            
+        </rim:RegistryObject>
+        
+        <rim:RegistryObject id="urn:uuid:61165d22-657b-45fa-9240-f1ed35837c23">
+            <rim:Slot name="DataServiceEvidenceType">
+                <rim:SlotValue xsi:type="rim:AnyValueType">
+                    
+                    <sdg:DataServiceEvidenceType>
+                        <sdg:Identifier>ID-123</sdg:Identifier>
+                        <sdg:EvidenceTypeClassification>CertificateOfInsurance</sdg:EvidenceTypeClassification>
+                        <sdg:Title>Certificate Of Insurance</sdg:Title>
+                        <sdg:DistributedAs>
+                            <sdg:Format>application/pdf</sdg:Format>
+                        </sdg:DistributedAs>
+                        
+                        <sdg:EvidenceProviderJurisdictionDetermination>
+                            <sdg:JurisdictionContextId>CompanyHq</sdg:JurisdictionContextId>
+                            <sdg:JurisdictionContext>Company Headquarters</sdg:JurisdictionContext>
+                            <sdg:JurisdictionLevel>https://sr.ec.europa.eu/codelist/locationLevel/LAU
+                            </sdg:JurisdictionLevel>
+                        </sdg:EvidenceProviderJurisdictionDetermination>
+                        
+                        <sdg:EvidenceProviderClassification>
+                            <sdg:Identifier>TypeOfInsurance</sdg:Identifier>
+                            <sdg:Type>Codelist</sdg:Type>
+                            <!-- Value from a Codelist required. Must be publised in the Semantic Repository -->
+                            <sdg:ValueExpression>http://sr.europa.eu/codelists/insuranceType</sdg:ValueExpression>
+                            <sdg:Description lang="en">Type Of Insurance</sdg:Description>
+                        </sdg:EvidenceProviderClassification>
+                        
+                    </sdg:DataServiceEvidenceType>
+                </rim:SlotValue>
+            </rim:Slot>
+            <rim:Classification id="urn:uuid:a1be6e74-efgh-5678-aaaa-0376f367b8fd"
+                classificationScheme="urn:oots:classification:dsd"
+                classificationNode="DataServiceEvidenceType"/>
+            
+        </rim:RegistryObject>
+        
+        <!-- Associate Evidence Provider A with Evidence Type 1-->
+        <rim:RegistryObject xsi:type="rim:AssociationType" id="123"
+            sourceObject="urn:uuid:a1be6e74-bbbb-4444-b04c-0376f367b8fd"
+            targetObject="urn:uuid:61165d22-657b-45fa-9240-f1ed35837c23"
+            type="urn:oasis:names:tc:ebxml-regrep:AssociationType:ServesEvidenceType"/>
+        
+    </rim:RegistryObjectList>
+    
+</lcm:SubmitObjectsRequest>

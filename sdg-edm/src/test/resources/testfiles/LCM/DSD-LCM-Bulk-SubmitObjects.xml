@@ -1,0 +1,79 @@
+<lcm:SubmitObjectsRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:4.0"
+  xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0"
+  xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0"
+  xmlns:lcm="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:4.0"
+  xmlns:sdg="http://data.europa.eu/p4s"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  id="1234-5678-9012-4543">
+
+  <rim:RegistryObjectList>
+    <rim:RegistryObject id="112" lid="2222">
+      <rim:Classification id="123" classificationScheme="urn:oots:classification:dsd" classificationNode="EvidenceProvider"/>
+
+      <!-- The actual Evidence Provider Structure -->
+      <rim:Slot name="EvidenceProvider">
+        <rim:SlotValue xsi:type="rim:AnyValueType">
+        <sdg:AccessService>
+          <Identifier schemeID="urn:oasis:names:tc:ebcore:partyid-type:iso6523:0060">8889909099</Identifier>
+          <ConformsTo>oots:edm-v1.0</ConformsTo>
+          <Publisher>
+            <!-- The Evidence Provider Information -->
+            <Identifier schemeID="1204">11231112313</Identifier>
+            <Name>Example Organization</Name>
+
+            <Address>
+              <!-- NUTS Code -->
+              <AdminUnitLevel2>MS77</AdminUnitLevel2>
+            </Address>
+
+            <Jurisdiction>
+              <AdminUnitLevel1>MS</AdminUnitLevel1>
+              <!-- NUTS Code -->
+              <AdminUnitLevel2>MS77</AdminUnitLevel2>
+            </Jurisdiction>
+          </Publisher>
+        </sdg:AccessService>
+        </rim:SlotValue>
+      </rim:Slot>
+    </rim:RegistryObject>
+
+    <rim:RegistryObject id="3" lid="">
+      <rim:Slot name="DataServiceEvidenceProvider">
+      <rim:SlotValue xsi:type="rim:AnyValueType">
+        <sdg:DataServiceEvidenceType>
+
+          <sdg:Identifier>ID-123</sdg:Identifier>
+          <sdg:EvidenceTypeClassification>CertificateOfBirth</sdg:EvidenceTypeClassification>
+          <sdg:Title>Certificate Of Birth</sdg:Title>
+          <sdg:DistributedAs>
+            <sdg:Format>application/pdf</sdg:Format>
+          </sdg:DistributedAs>
+
+          <sdg:EvidenceProviderClassification>
+
+              <sdg:Identifier>TypeOfInsurance</sdg:Identifier>
+              <sdg:Type>String</sdg:Type>
+              <sdg:ValueExpression>^\d{5}$</sdg:ValueExpression>
+              <sdg:Description lang="en">Type Of Insurance</sdg:Description>
+
+          </sdg:EvidenceProviderClassification>
+
+          <sdg:EvidenceProviderJurisdictionDetermination>
+            <sdg:JurisdictionContextId>PlaceOfBirthIdentifier</sdg:JurisdictionContextId>
+            <sdg:JurisdictionContext>Place Of Birth</sdg:JurisdictionContext>
+            <sdg:JurisdictionLevel>https://sr.ec.europa.eu/codelist/locationLevel/LAU</sdg:JurisdictionLevel>
+          </sdg:EvidenceProviderJurisdictionDetermination>
+
+        </sdg:DataServiceEvidenceType>
+      </rim:SlotValue>
+      </rim:Slot>
+
+    </rim:RegistryObject>
+
+    <!-- Associate Evidence Provider with Evidence Type -->
+    <rim:RegistryObject xsi:type="rim:AssociationType" id="123" sourceObject="112" targetObject="3" type="urn:oots:association-type:serves"/>
+
+  </rim:RegistryObjectList>
+
+</lcm:SubmitObjectsRequest>

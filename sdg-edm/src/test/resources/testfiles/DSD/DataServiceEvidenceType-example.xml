@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataServiceEvidenceType xmlns="http://data.europa.eu/p4s">
+
+  <!-- - - Evidence Type Metadata - - -->
+  <Identifier>RE238918378</Identifier>
+
+  <!-- Classification Information - Used for linking with the Evidence Broker -->
+  <EvidenceTypeClassification>CertificateOfInsurance</EvidenceTypeClassification>
+  <Title>Certificate of Insurance</Title>
+
+  <!-- Distribution Information - Multiple Distributions per Data Service Evidence Type -->
+  <!-- XML Distribution, conforming to the common data model on Birth Certificate -->
+  <DistributedAs>
+    <Format>application/xml</Format>
+    <ConformsTo>https://semic.org/sa/common/insurancecert-1.0.0</ConformsTo>
+  </DistributedAs>
+  <!-- PDF Distribution. PDF is unstructured data so there is no conformance to a data model -->
+  <DistributedAs>
+    <Format>application/pdf</Format>
+  </DistributedAs>
+
+  <!-- - - Evidence Provider and Data Service Metadata - - -->
+  <!-- Access Service represents the Data Service serving the piece of evidence on behalf of an Evidence Provider -->
+  <!-- Multiple Access Services, one per Evidence Provider -->
+  <AccessService>
+    <!-- The identifier of the Access Service, using ebcore Party ID Type. Used in eDelivery Evidence Exchange for PMode Mapping -->
+    <Identifier schemeID="urn:oasis:names:tc:ebcore:partyid-type:iso6523:0060">8889909098</Identifier>
+    <!-- The Evidence Exchange profile version to which this access service expects / serves -->
+    <ConformsTo>oots:edm-v1.0</ConformsTo>
+
+    <!-- Access Service of an evidence provider supporting only Private Insurance Types -->
+    <Publisher>
+      <Identifier schemeID="1204">11231112313</Identifier>
+      <Name>Example Organization</Name>
+
+      <Address>
+        <AdminUnitLevel1>MS</AdminUnitLevel1>
+      </Address>
+
+      <Jurisdiction>
+        <AdminUnitLevel1>MS12</AdminUnitLevel1>
+      </Jurisdiction>
+
+      <!-- Information Concepts that Classify the Evidence Provider -->
+
+        <ClassificationConcept>
+          <Identifier>TypeOfInsurance</Identifier>
+          <SupportedValue>
+            <StringValue>private</StringValue>
+          </SupportedValue>
+        </ClassificationConcept>
+
+    </Publisher>
+  </AccessService>
+
+  <!-- Access Service of an evidence provider supporting only Public Insurance Types -->
+  <AccessService>
+    <Identifier schemeID="urn:oasis:names:tc:ebcore:partyid-type:iso6523:0060">8889909099</Identifier>
+    <ConformsTo>oots:edm-v1.0</ConformsTo>
+    <Publisher>
+      <!-- The Evidence Provider Information -->
+      <Identifier schemeID="1204">11231112313</Identifier>
+      <Name>Example Organization</Name>
+
+      <Address>
+        <!-- NUTS Code -->
+        <AdminUnitLevel1>MS</AdminUnitLevel1>
+        <AdminUnitLevel2>MS77</AdminUnitLevel2>
+      </Address>
+
+      <Jurisdiction>
+        <AdminUnitLevel1>MS</AdminUnitLevel1>
+        <!-- NUTS Code -->
+        <AdminUnitLevel2>MS77</AdminUnitLevel2>
+      </Jurisdiction>
+
+
+        <ClassificationConcept>
+          <Identifier>TypeOfInsurance</Identifier>
+          <SupportedValue>
+            <StringValue>public</StringValue>
+          </SupportedValue>
+        </ClassificationConcept>
+
+
+    </Publisher>
+  </AccessService>
+  <!-- Level Of Assurance Required for the Evidence Type by the Evidence Provider -->
+  <AuthenticationLevelOfAssurance>http://eidas.europa.eu/LoA/High</AuthenticationLevelOfAssurance>
+
+
+  <!-- Determination of the Jurisdiction Mapping to the User's attributes. NUTS2 is required -->
+  <EvidenceProviderJurisdictionDetermination>
+    <JurisdictionContextId>CompanyHq</JurisdictionContextId>
+    <JurisdictionContext>Company's Headquarters Location</JurisdictionContext>
+    <JurisdictionLevel>https://sr.ec.europa.eu/codelist/locationLevel/NUTS2</JurisdictionLevel>
+  </EvidenceProviderJurisdictionDetermination>
+
+
+  <!-- Declaration of the possible classifications of the Evidence provider -->
+  <EvidenceProviderClassification>
+
+    <Identifier>TypeOfInsurance</Identifier>
+    <Type>Codelist</Type>
+    <!-- Value from a Codelist required. Must be publised in the Semantic Repository -->
+    <ValueExpression>http://sr.europa.eu/codelists/insuranceType</ValueExpression>
+    <Description lang="en">Type Of Insurance</Description>
+
+  </EvidenceProviderClassification>
+
+
+</DataServiceEvidenceType>

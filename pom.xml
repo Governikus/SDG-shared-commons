@@ -29,6 +29,11 @@
     <url>http://github.com/Governikus/sdg-shared-commons</url>
     <tag>HEAD</tag>
   </scm>
+  
+  <organization>
+    <name>Governikus</name>
+    <url>https://www.governikus.de</url>
+  </organization>
 
   <developers>
     <developer>
@@ -38,6 +43,12 @@
       <url>http://www.helger.com</url>
     </developer>
   </developers>
+  
+  <properties>
+    <jaxb-plugin.group>com.helger.maven</jaxb-plugin.group>
+    <jaxb-plugin.artifact>jaxb40-maven-plugin</jaxb-plugin.artifact>
+    <jaxb-plugin.version>0.16.1</jaxb-plugin.version>
+  </properties>
 
   <dependencyManagement>
     <dependencies>

@@ -1,0 +1,16 @@
+<rim:RegistryObject id="urn:uuid:315cfd75-6605-49c4-b0fe-799833b41099"
+    xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0" xmlns:sdg="http://data.europa.eu/p4s"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <rim:Slot name="Requirement">
+        <rim:SlotValue xsi:type="rim:AnyValueType">
+            <sdg:Requirement>
+                <sdg:Identifier>315cfd75-6605-49c4-b0fe-799833b41099</sdg:Identifier>
+                <sdg:Name>Proof of Birth</sdg:Name>
+            </sdg:Requirement>
+        </rim:SlotValue>
+    </rim:Slot>
+    <rim:Classification id="urn:uuid:d45aa619-2d90-4d6c-ae59-b9ca4e6a5876"
+        classificationScheme="urn:fdc:oots:classification:eb" classificationNode="Procedure"/>
+    
+</rim:RegistryObject>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<query:QueryResponse 
+    xmlns:lcm="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:4.0"
+    xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0"
+    xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0"
+    xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:4.0"
+    xmlns:sdg="http://data.europa.eu/p4s"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        status="urn:oasis:names:tc:ebxml-regrep:ResponseStatusType:Success">
+    
+    <rim:RegistryObjectList>
+        <!-- One registry object per dataset -->
+        <rim:RegistryObject id="315cfd75-6605-49c4-b0fe-799833b41099">
+            <rim:Slot name="Requirement">
+                <rim:SlotValue xsi:type="rim:AnyValueType">
+                    <sdg:Requirement >
+                        
+                        <sdg:Identifier>315cfd75-6605-49c4-b0fe-799833b41099</sdg:Identifier>
+                        <sdg:Name>Proof of Birth</sdg:Name>
+                        
+                        <sdg:ReferenceFramework>
+                            
+                            <!-- Procedure Identifier -->
+                            <sdg:Identifier>118fd444-6443-42be-a084-c9fbfd1f674d</sdg:Identifier>
+                            <sdg:Title>Procedure 5 - Annex II of SDG as Implemented in the Spanish Portal</sdg:Title>
+                            <sdg:Description> Procedure 5 of Annex II of the Regulation (EU) 2018/1724
+                                of the European Parliament and of the Council of 2 October 2018 establishing a single digital gateway
+                                to provide access to information, to procedures and to assistance and problem-solving services and amending Regulation (EU) No 1024/2012
+                            </sdg:Description>
+                            
+                            <!-- The Identifier of the SDGR Procedure which this procedure relates to -->
+                            <sdg:RelatedTo>
+                                <sdg:Identifier>http://data.europa.eu/eli/reg/2018/1724/oj#AnnexII-5</sdg:Identifier>
+                            </sdg:RelatedTo>
+                            
+                            <!-- Requirement is used in the implementation of Procedure 5 in Spain -->
+                            <sdg:Jurisdiction>
+                                <sdg:AdminUnitLevel1>ES</sdg:AdminUnitLevel1>
+                            </sdg:Jurisdiction>
+                            
+                        </sdg:ReferenceFramework>
+                        
+                        <sdg:ReferenceFramework>
+                            
+                            <!-- Procedure Identifier -->
+                            <sdg:Identifier>03b82e6a-3227-4751-a815-b570a9c0aeb4</sdg:Identifier>
+                            <sdg:Title>Procedure 5 - Annex II of SDG as Implemented in Belgian Portal</sdg:Title>
+                            <sdg:Description> Procedure 5 of Annex II of the Regulation (EU) 2018/1724
+                                of the European Parliament and of the Council of 2 October 2018 establishing a single digital gateway
+                                to provide access to information, to procedures and to assistance and problem-solving services and amending Regulation (EU) No 1024/2012
+                            </sdg:Description>
+                            
+                            <!-- The Identifier of the SDGR Procedure which this procedure relates to -->
+                            <sdg:RelatedTo>
+                                <sdg:Identifier>http://data.europa.eu/eli/reg/2018/1724/oj#AnnexII-5</sdg:Identifier>
+                            </sdg:RelatedTo>
+                            
+                            <!-- Requirement is used in the implementation of Procedure 5 in Belgium -->
+                            <sdg:Jurisdiction>
+                                <sdg:AdminUnitLevel1>BE</sdg:AdminUnitLevel1>
+                            </sdg:Jurisdiction>
+                        </sdg:ReferenceFramework>
+                        
+                        <sdg:EvidenceTypeList>
+                            <!-- Example structure of an evidence type having national coverage area / jurisdiction -->
+                            <sdg:Identifier>EV-List-1</sdg:Identifier>
+                            <sdg:EvidenceType>
+                                <sdg:EvidenceTypeClassification>Classification Code</sdg:EvidenceTypeClassification>
+                                <sdg:Title lang="en">Title of the Evidence Type</sdg:Title>
+                                <sdg:Description>certificado de nacimiento</sdg:Description>
+                                <sdg:Jurisdiction>
+                                    <!-- ISO code -->
+                                    <sdg:AdminUnitLevel1>ES</sdg:AdminUnitLevel1>
+                                    <!-- NUTS Code -->
+                                    <sdg:AdminUnitLevel2>ES211</sdg:AdminUnitLevel2>
+                                    <!-- LAU Code -->
+                                    <sdg:AdminUnitLevel3>01001</sdg:AdminUnitLevel3>
+                                </sdg:Jurisdiction>
+                            </sdg:EvidenceType>
+                        </sdg:EvidenceTypeList>
+                        
+                        <!-- Example structure of an evidence type having national coverage area / jurisdiction -->
+                        <sdg:EvidenceTypeList>
+                            <sdg:Identifier>EV-List-2</sdg:Identifier>
+                            
+                            <!-- Classification Information - Provided by the Evidence Broker on the basis of the Semantic Repository --> 
+                            <sdg:EvidenceType>                    
+                                <sdg:EvidenceTypeClassification>Classification Code</sdg:EvidenceTypeClassification>
+                                <sdg:Title lang="en">Certificate of Birth</sdg:Title>
+                                <sdg:Title lang="de">Geburtsurkunde</sdg:Title>
+                                <sdg:Description lang="en">An official certificate of birth of a person - with first name, surname, sex, date and place of birth, which is obtained from the birth register of the place of birth.</sdg:Description>
+                                <sdg:Description lang="de">Eine amtliche Bescheinigung über die Geburt einer Person – mit Vorname, Familienname, Geschlecht, Datum und Ort der Geburt, welche aus dem Geburtsregister des Geburtsortes erstellt wird.</sdg:Description>                       
+                                <sdg:Jurisdiction>
+                                    <!-- Country - Mandatory -->
+                                    <sdg:AdminUnitLevel1>DE</sdg:AdminUnitLevel1>
+                                    <!-- Regional Code not applicable for DE (Common Evidence for all country) -->
+                                </sdg:Jurisdiction>
+                            </sdg:EvidenceType>
+                        </sdg:EvidenceTypeList>
+                    </sdg:Requirement>
+                </rim:SlotValue>
+            </rim:Slot>
+        </rim:RegistryObject>
+    </rim:RegistryObjectList>
+</query:QueryResponse>

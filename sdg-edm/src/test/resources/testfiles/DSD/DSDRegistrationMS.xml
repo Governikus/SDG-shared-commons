@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<query:QueryResponse
+    xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0"
+    xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0"
+    xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:4.0"
+    startIndex="0"
+    status="urn:oasis:names:tc:ebxml-regrep:ResponseStatusType:Success" totalResultCount="1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    
+    xmlns:sdg="http://data.europa.eu/p4s">
+
+    <!-- depending on the count of datasets returned, the totalResultCount attribute should
+reflect the number of the datasets returned -->
+    <rim:RegistryObjectList>
+        <!-- One registry object per dataset -->
+        <rim:RegistryObject id="RE238912378">
+            <rim:Slot name="DataServiceEvidenceType">
+                <rim:SlotValue xsi:type="rim:AnyValueType">
+                    <sdg:DataServiceEvidenceType>
+                        
+                        <!-- - - Evidence Type Metadata - - -->
+                        <sdg:Identifier>RE238918378</sdg:Identifier>
+                        
+                        <!-- Classification Information - Used for linking with the Evidence Broker -->
+                        <sdg:EvidenceTypeClassification>CertificateOfInsurance</sdg:EvidenceTypeClassification>
+                        <sdg:Title>Certificate of Insurance</sdg:Title>
+                        
+                        <!-- Distribution Information - Multiple Distributions per Data Service Evidence Type -->
+                        <!-- XML Distribution, conforming to the common data model on Insurance Certificate -->
+                        <sdg:DistributedAs>
+                            <sdg:Format>application/xml</sdg:Format>
+                            <sdg:ConformsTo>https://semic.org/sa/common/insurancecert-1.0.0</sdg:ConformsTo>
+                        </sdg:DistributedAs>
+                        <!-- PDF Distribution. PDF is unstructured data so there is no conformance to a data model -->
+                        <sdg:DistributedAs>
+                            <sdg:Format>application/pdf</sdg:Format>
+                        </sdg:DistributedAs>
+                        
+                        <!-- - - Evidence Provider and Data Service Metadata - - -->
+                        <!-- Access Service represents the Data Service serving the piece of evidence on behalf of an Evidence Provider -->
+                        <!-- Multiple Access Services, one per Evidence Provider -->
+                        <!-- Declaration of the possible classifications of the Evidence provider ... Omitted in this snippet -->
+                        
+                        <!-- Determination of the Jurisdiction Mapping to the User's attributes. NUTS2 is required -->
+                        <sdg:EvidenceProviderJurisdictionDetermination>
+                            <sdg:JurisdictionContextId>CompanyHq</sdg:JurisdictionContextId>
+                            <sdg:JurisdictionContext>Company's Headquarters Location</sdg:JurisdictionContext>
+                            <sdg:JurisdictionLevel>https://sr.ec.europa.eu/codelist/locationLevel/NUTS2</sdg:JurisdictionLevel>
+                        </sdg:EvidenceProviderJurisdictionDetermination>
+                        
+                        <!-- - - - Data Service Identity Matching Requirements - - - -->
+                        <!-- Level Of Assurance Required for the Evidence Type by the Evidence Provider ... Omitted in this snippet -->
+                        <sdg:EvidenceProviderClassification>                        
+                            <sdg:Identifier>TypeOfInsurance</sdg:Identifier>
+                            <sdg:Type>Codelist</sdg:Type>
+                            <!-- Value from a Codelist required. Must be publised in the Semantic Repository -->
+                            <sdg:ValueExpression>http://sr.europa.eu/codelists/insuranceType</sdg:ValueExpression>
+                            <sdg:Description lang="en">Type Of Insurance</sdg:Description>    
+                        </sdg:EvidenceProviderClassification>
+                    </sdg:DataServiceEvidenceType>
+                </rim:SlotValue>
+            </rim:Slot>
+        </rim:RegistryObject>
+    </rim:RegistryObjectList>
+</query:QueryResponse>
+
+                        

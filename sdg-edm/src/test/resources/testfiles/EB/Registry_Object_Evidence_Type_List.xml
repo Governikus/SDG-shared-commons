@@ -1,0 +1,16 @@
+<rim:RegistryObject id="urn:uuid:a1be6e74-e9ba-4d44-b04c-0376f367b8fd"
+    xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0"
+    xmlns:sdg="http://data.europa.eu/p4s"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <rim:Slot name="EvidenceTypeList">
+        <rim:SlotValue xsi:type="rim:AnyValueType">
+            <sdg:EvidenceTypeList>
+                <sdg:Identifier>a1be6e74-e9ba-4d44-b04c-0376f367b8fd</sdg:Identifier>
+            </sdg:EvidenceTypeList>
+        </rim:SlotValue>
+    </rim:Slot>
+    <rim:Classification id="urn:uuid:d45aa619-2d90-4d6c-ae59-b9ca4e6a5873"
+        classificationScheme="urn:fdc:oots:classification:eb" classificationNode="EvidenceTypeList"/>
+    
+</rim:RegistryObject>

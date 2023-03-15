@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<query:QueryResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:4.0"
+  xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0"
+  xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0" xmlns:sdg="http://data.europa.eu/p4s"
+  xmlns:xlink="http://www.w3.org/1999/xlink" requestId="c4369c4d-740e-4b64-80f0-7b209a66d629"
+  status="urn:oasis:names:tc:ebxml-regrep:ResponseStatusType:Success">
+
+  <rim:RegistryObjectList>
+    <rim:RegistryObject id="RE238912378">
+      <rim:Slot name="DataServiceEvidenceType">
+        <rim:SlotValue xsi:type="rim:AnyValueType">
+          <sdg:DataServiceEvidenceType>
+
+            <sdg:Identifier>RE238918378</sdg:Identifier>
+
+            <sdg:EvidenceTypeClassification>http://oots.eu/evidencetypes/germany/geburtsurkunde</sdg:EvidenceTypeClassification>
+            <sdg:Title lang="en">Certificate of Birth</sdg:Title>
+            <sdg:Title lang="de">Geburtsurkunde</sdg:Title>
+            <sdg:Description lang="en">An official certificate of birth of a person - with first name,
+              surname, sex, date and place of birth, which is obtained from the birth register of
+              the place of birth.</sdg:Description>
+            <sdg:Description lang="de">Eine amtliche Bescheinigung über die Geburt einer Person – mit
+              Vorname, Familienname, Geschlecht, Datum und Ort der Geburt, welche aus dem
+              Geburtsregister des Geburtsortes erstellt wird.</sdg:Description>
+
+            <sdg:DistributedAs>
+              <sdg:Format>application/xml</sdg:Format>
+              <sdg:ConformsTo>https://semic.org/sa/common/birthcert-1.0.0</sdg:ConformsTo>
+            </sdg:DistributedAs>
+
+            <sdg:AccessService>
+              <sdg:Identifier schemeID="urn:oasis:names:tc:ebcore:partyid-type:iso6523:0060"> 8889909098 </sdg:Identifier>
+              <sdg:ConformsTo>oots:edm-v1.0</sdg:ConformsTo>
+              <sdg:Publisher>
+                <sdg:Identifier schemeID="1204">11231112313</sdg:Identifier>
+                <sdg:Name>Example Organization</sdg:Name>
+                <sdg:Address>
+                  <sdg:AdminUnitLevel1>SK</sdg:AdminUnitLevel1>
+                  <sdg:AdminUnitLevel2>SK12</sdg:AdminUnitLevel2>
+                </sdg:Address>
+
+                <sdg:Jurisdiction>
+                  <sdg:AdminUnitLevel1>SK</sdg:AdminUnitLevel1>
+                  <sdg:AdminUnitLevel2>SK12</sdg:AdminUnitLevel2>
+                </sdg:Jurisdiction>
+
+              </sdg:Publisher>
+
+            </sdg:AccessService>
+          </sdg:DataServiceEvidenceType>
+        </rim:SlotValue>
+      </rim:Slot>
+    </rim:RegistryObject>
+  </rim:RegistryObjectList>
+</query:QueryResponse>

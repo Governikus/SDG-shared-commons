@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EvidenceProviderClassification xmlns="http://data.europa.eu/p4s">
+  <Identifier>ZipOfBirth</Identifier>
+  <Type>String</Type>
+  <ValueExpression>^\d{5}$</ValueExpression>
+  <Description lang="en">Postalcode of Birthplace</Description>
+  <Description lang="de">Postleitzahl des Geburtsortes</Description>
+</EvidenceProviderClassification>
+

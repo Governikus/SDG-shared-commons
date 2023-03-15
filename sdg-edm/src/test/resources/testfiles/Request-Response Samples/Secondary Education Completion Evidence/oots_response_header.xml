@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Messaging mustUnderstand="false" xmlns="http://docs.oasis-open.org/ebxml-msg/ebms/v3.0/ns/core/200704/">
+    <UserMessage>
+        <PartyInfo>
+            <From>
+                <PartyId type="urn:oasis:names:tc:ebcore:partyid-type:unregistered:oots-simulator"
+                    >urn:oasis:names:tc:ebcore:partyid-type:unregistered:C3</PartyId>
+                <Role>http://sdg.europa.eu/edelivery/gateway</Role>
+            </From>
+            <To>
+                <PartyId type="urn:oasis:names:tc:ebcore:partyid-type:unregistered:oots-simulator"
+                    >urn:oasis:names:tc:ebcore:partyid-type:unregistered:C2</PartyId>
+                <Role>http://sdg.europa.eu/edelivery/gateway</Role>
+            </To>
+        </PartyInfo>
+        <CollaborationInfo>
+            <Service type="urn:oasis:names:tc:ebcore:ebrs:ebms:binding:1.0">QueryManager</Service>
+            <Action>ExecuteQueryResponse</Action>
+            <ConversationId>b11c2a3c-3be9-4aac-9a03-cf2c6d4e7bbe</ConversationId>
+        </CollaborationInfo>
+        <MessageProperties>
+            <Property name="originalSender">urn:oasis:names:tc:ebcore:partyid-type:unregistered:C4</Property>
+            <Property name="finalRecipient">urn:oasis:names:tc:ebcore:partyid-type:unregistered:C1</Property>
+        </MessageProperties>
+        <PayloadInfo>
+            <PartInfo href="cid:regrepresponse@example.oots.eu">
+                <PartProperties>
+                    <Property name="MimeType">application/x-ebrs+xml</Property>
+                    <Property name="PayloadName">response.xml</Property>
+                </PartProperties>
+            </PartInfo>
+			<PartInfo href="cid:attachment100001@example.oots.eu">
+                <PartProperties>
+                    <Property name="MimeType">application/pdf</Property>
+                    <Property name="PayloadName">SecondaryEducationCompletion.pdf</Property>
+                </PartProperties>
+            </PartInfo>
+            <PartInfo href="cid:attachment100002@example.oots.eu">
+                <PartProperties>
+                    <Property name="MimeType">application/pdf</Property>
+                    <Property name="PayloadName">SecondaryEducationCompletionSupplement.pdf</Property>
+                </PartProperties>
+            </PartInfo>
+        </PayloadInfo>
+    </UserMessage>
+</Messaging>

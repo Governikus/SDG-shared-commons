@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rs:RegistryResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:4.0"
+    xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0"
+    xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0"
+    status="urn:oasis:names:tc:ebxml-regrep:ResponseStatusType:Failure"
+    requestId="urn:uuid:4dd63731-1b16-484e-af7c-baaf492f9073">
+    
+    <rs:Exception
+        xsi:type="rs:InvalidRequestExceptionType"
+        severity="urn:oasis:names:tc:ebxml-regrep:ErrorSeverityType:Error"
+        message="Generic Error"
+        code="SERVICE:ERR:0001">
+    </rs:Exception>
+</rs:RegistryResponse>

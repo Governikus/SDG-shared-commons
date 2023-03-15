@@ -26,3 +26,7 @@ Partial list of terms and abbreviations used in this repository.
 | IP | Intermediary Platform |
 | SDG | Single Digitial Gateway |
 | SDGR | SDG Regulation |
+
+## Module
+
+* `sdg-edm` - contains the shared resources for the SDG EDM based on https://ec.europa.eu/digital-building-blocks/code/projects/OOP/repos/tdd_chapters/browse/OOTS-EDM

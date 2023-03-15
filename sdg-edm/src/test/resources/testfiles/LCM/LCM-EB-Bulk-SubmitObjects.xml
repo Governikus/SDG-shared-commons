@@ -1,0 +1,92 @@
+<lcm:SubmitObjectsRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:4.0"
+    xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0"
+    xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0"
+    xmlns:lcm="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:4.0" xmlns:sdg="http://data.europa.eu/p4s"
+    xmlns:xlink="http://www.w3.org/1999/xlink" id="6d51920f-04a7-4482-be34-153e01b0b7a3">
+    <rim:RegistryObjectList>
+        <rim:RegistryObject id="urn:uuid:a1be6e74-e9ba-4d44-b04c-0376f367b8fd">
+            <rim:Slot name="EvidenceType">
+                <rim:SlotValue xsi:type="rim:AnyValueType">
+                    <sdg:EvidenceType>
+                        <sdg:EvidenceTypeClassification>a1be6e74-e9ba-4d44-b04c-0376f367b8fd</sdg:EvidenceTypeClassification>
+                        <sdg:Title lang="en">Certificate of Birth</sdg:Title>
+                        <sdg:Title lang="de">Geburtsurkunde</sdg:Title>
+                        <sdg:Description>certificado de nacimiento</sdg:Description>
+                        <sdg:Jurisdiction>
+                            <!-- ISO code -->
+                            <sdg:AdminUnitLevel1>ES</sdg:AdminUnitLevel1>
+                            <!-- NUTS Code -->
+                            <sdg:AdminUnitLevel2>ES211</sdg:AdminUnitLevel2>
+                            <!-- LAU Code -->
+                            <sdg:AdminUnitLevel3>01001</sdg:AdminUnitLevel3>
+                        </sdg:Jurisdiction>
+                    </sdg:EvidenceType>
+                </rim:SlotValue>
+            </rim:Slot>
+            <rim:Classification id="urn:uuid:35c299d8-9383-47ce-ad8c-0ed70ea52827"
+                classificationScheme="urn:fdc:oots:classification:eb"
+                classificationNode="EvidenceType"/>
+        </rim:RegistryObject>
+        <rim:RegistryObject id="urn:uuid:91197b3c-890b-475f-a07e-709742e59f23">
+            <rim:Slot name="EvidenceTypeList">
+                <rim:SlotValue xsi:type="rim:AnyValueType">
+                    <sdg:EvidenceTypeList>
+                        <sdg:Identifier>91197b3c-890b-475f-a07e-709742e59f23</sdg:Identifier>
+                    </sdg:EvidenceTypeList>
+                </rim:SlotValue>
+            </rim:Slot>
+            <rim:Classification id="urn:uuid:4d44680b-432c-4b22-aa36-880d4ebd1b0d"
+                classificationScheme="urn:fdc:oots:classification:eb"
+                classificationNode="EvidenceTypeList"/>
+        </rim:RegistryObject>
+        <rim:RegistryObject id="urn:uuid:315cfd75-6605-49c4-b0fe-799833b41099">
+            <rim:Slot name="Requirement">
+                <rim:SlotValue xsi:type="rim:AnyValueType">
+                    <sdg:Requirement>
+                        <sdg:Identifier>315cfd75-6605-49c4-b0fe-799833b41099</sdg:Identifier>
+                        <sdg:Name>Proof of Birth</sdg:Name>
+                    </sdg:Requirement>
+                </rim:SlotValue>
+            </rim:Slot>
+            <rim:Classification id="urn:uuid:22333046-3429-4684-85de-d9db69e236a1"
+                classificationScheme="urn:fdc:oots:classification:eb" classificationNode="Procedure"
+            />
+        </rim:RegistryObject>
+        <rim:RegistryObject id="urn:b0c90eb4-6b66-4dd8-8c79-6d964ac3b9a1">
+            <rim:Slot name="ReferenceFramework">
+                <rim:SlotValue xsi:type="rim:AnyValueType">
+                    <sdg:ReferenceFramework>
+                        <sdg:Identifier>118fd444-6443-42be-a084-c9fbfd1f674d</sdg:Identifier>
+                        <sdg:Title>Procedure 5 - Annex II of SDG as Implemented in the Spanish Portal</sdg:Title>
+                        <sdg:Description> Procedure 5 of Annex II of the Regulation (EU) 2018/1724 of the European Parliament and of the Council of 2 October 2018 establishing a single digital gatewa to provide access to information, to procedures and to assistance and problem-solving services and amending Regulation (EU) No 1024/2012</sdg:Description>
+                        <sdg:RelatedTo>
+                            <sdg:Identifier>http://data.europa.eu/eli/reg/2018/1724/oj#AnnexII-5</sdg:Identifier>
+                        </sdg:RelatedTo>
+                        <sdg:Jurisdiction>
+                            <sdg:AdminUnitLevel1>ES</sdg:AdminUnitLevel1>
+                        </sdg:Jurisdiction>
+                    </sdg:ReferenceFramework>
+                </rim:SlotValue>
+            </rim:Slot>
+            <rim:Classification id="urn:uuid:750869ec-aeac-4cc6-9386-75c86544e433"
+                classificationScheme="urn:fdc:oots:classification:eb" classificationNode="ReferenceFramework"
+            />
+        </rim:RegistryObject>
+        <rim:RegistryObject xsi:type="rim:AssociationType"
+            id="urn:uuid:826a2206-5dd0-45ff-abbc-23ba8f38477f"
+            sourceObject="urn:uuid:91197b3c-890b-475f-a07e-709742e59f23"
+            targetObject="urn:uuid:a1be6e74-e9ba-4d44-b04c-0376f367b8fd"
+            type="urn:oasis:names:tc:ebxml-regrep:AssociationType:ContainsEvidence"/>
+        <rim:RegistryObject xsi:type="rim:AssociationType"
+            id="urn:uuid:3da4288b-e2ca-4d40-bde2-d3fc2dd04bab"
+            sourceObject="urn:uuid:91197b3c-890b-475f-a07e-709742e59f23"
+            targetObject="urn:uuid:315cfd75-6605-49c4-b0fe-799833b41099"
+            type="urn:oasis:names:tc:ebxml-regrep:AssociationType:FulfillsRequirement"/>
+        <rim:RegistryObject xsi:type="rim:AssociationType"
+            id="urn:uuid:d650d08b-4ca3-4d04-a5d2-255d83b84ce1"
+            sourceObject="urn:uuid:315cfd75-6605-49c4-b0fe-799833b41099"
+            targetObject="urn:b0c90eb4-6b66-4dd8-8c79-6d964ac3b9a1"
+            type="urn:oasis:names:tc:ebxml-regrep:AssociationType:DerivesFromReferenceFramework"/>
+    </rim:RegistryObjectList>
+</lcm:SubmitObjectsRequest>

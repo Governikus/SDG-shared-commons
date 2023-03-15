@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EvidenceProviderClassification xmlns="http://data.europa.eu/p4s">
+  <Identifier>LocationOfBirth</Identifier>
+  <Type>String</Type>
+  <Description lang="en">Location Of Birth of the Evidence Subject</Description>
+  <Description lang="de">Location Of Birth of the Evidence Subject</Description>
+</EvidenceProviderClassification>

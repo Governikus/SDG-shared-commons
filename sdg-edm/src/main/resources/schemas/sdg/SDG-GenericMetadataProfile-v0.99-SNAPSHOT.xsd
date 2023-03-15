@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- version 0.99
+	Cleaned up unused elements.
+	Corrected cardinalities according to usage
+	Refactored LoA use.
+	Fixed issues with namespace declaration
+	Renamed Evidence Type Identifer to EvidenceTypeClassification, which is now the link between DSD and EB
+	Added Gender Type aligned with eIDAS in person type.
+    Removed EvidenceSubjectNature
+-->
+
+<!-- Version 0.98
+   changes in namespace.
+   Refactored the Core Person and Core Business
+-->
+
+<!-- Version 0.97
+	Added the extensions required for the DSD Dialogue mechanism, using CCCEV Information Concepts,
+	for the evidence provider classification properties.
+-->
+
+<!-- Version 0.96
+	Added InformationConcept, SupportedValue representation of the CCCEV 2.0 classes, for use with the
+	Dialog Option between Common Services and ER and EP and ER.
+	Cleaned up attribute values
+-->
+
+<!-- Version 0.95
+	Added Cardinalities to all the elements required
+	Added new elements, required for xml generation
+	Restructured existing elements to align with EDM requirements (Changes must be applied to the wiki pages of the OOTS Data Models 
+	Added LoA Attributes to the necessary elements in Core Person And Core Business representations 
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:sdg="http://data.europa.eu/p4s"
+	targetNamespace="http://data.europa.eu/p4s" elementFormDefault="qualified" vc:minVersion="1.1">
+
+	<!--xs:import namespace="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0" schemaLocation="http://docs.oasis-open.org/regrep/regrep-core/v4.0/os/xsd/rim.xsd"/>
+	<xs:import namespace="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0" schemaLocation="http://docs.oasis-open.org/regrep/regrep-core/v4.0/os/xsd/query.xsd"/-->
+
+	<xs:complexType name="AgentType">
+		<xs:sequence>
+			<xs:element ref="sdg:Identifier"/>
+			<!-- minOccurs="1" maxOccurs="1" -->
+			<xs:element ref="sdg:Name"/>
+			<!-- minOccurs="1" maxOccurs="1"  -->
+			<xs:element name="Address" type="sdg:AddressType" minOccurs="0"/>
+			<!-- maxOccurs="1"  -->
+			<xs:element name="Jurisdiction" type="sdg:JurisdictionType" minOccurs="0"/>
+
+			<!-- CODELIST Value / Authority: OOTS Semantics Subgroup? - Classification is used to distinguish between EvidenceProvider / EvidenceRequester and Intermidiary Platform. -->
+			<xs:element name="Classification" type="sdg:CodeType" minOccurs="0"/>
+			<!-- maxOccurs="1"  -->
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ReferenceFrameworkType">
+		<xs:sequence>
+			<xs:element ref="sdg:Identifier"/>
+			<!-- minOccurs="1" maxOccurs="1" -->
+			<xs:element ref="sdg:Title" minOccurs="0"/>
+			<!-- maxOccurs="1"  -->
+			<xs:element ref="sdg:Description" minOccurs="0"/>
+			<!-- maxOccurs="1"  -->
+			<xs:element name="RelatedTo" type="sdg:ReferenceFrameworkType" minOccurs="0"/>
+			<!-- maxOccurs="unbounded" -->
+			<xs:element ref="sdg:Jurisdiction" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="JurisdictionType">
+		<xs:sequence>
+
+			<!-- CODELIST Value (Country codes) / Authority: Publication's Office or ISO -->
+			<xs:element name="AdminUnitLevel1" type="sdg:CodeType"/>
+			<!-- minOccurs="1" maxOccurs="1" -->
+			<!-- CODELIST Value (NUTS) / Authority: Publication's Office -->
+			<xs:element name="AdminUnitLevel2" type="sdg:CodeType" minOccurs="0"/>
+			<!-- maxOccurs="1" -->
+			<!-- CODELIST Value (LAU) / Authority: Publication's Office -->
+			<xs:element name="AdminUnitLevel3" type="sdg:CodeType" minOccurs="0"/>
+			<!-- maxOccurs="1" -->
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="RequirementType">
+		<xs:sequence>
+			<xs:element ref="sdg:Identifier"/>
+			<!--  minOccurs="1" maxOccurs="1"  -->
+			<xs:element ref="sdg:Name"/>
+			<!--  minOccurs="1" maxOccurs="1" -->
+			<!-- <xs:element ref="sdg:Description" minOccurs="0"/>-->
+			<!-- Keep it as unused element that might be introduced at later stage (not used yet) -->
+			<xs:element name="ReferenceFramework" type="sdg:ReferenceFrameworkType" minOccurs="0"
+				maxOccurs="unbounded"/>
+			<xs:element name="EvidenceTypeList" type="sdg:EvidenceTypeListType" minOccurs="0"
+				maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="EvidenceTypeListType">
+		<xs:sequence>
+			<xs:element ref="sdg:Identifier"/>
+			<!-- minOccurs="1" maxOccurs="1" -->
+			<xs:element ref="sdg:Name" minOccurs="0"/>
+			<!-- maxOccurs="unbounded" - make it multilingual -->
+			<xs:element name="EvidenceType" type="sdg:EvidenceTypeType" minOccurs="1"
+				maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="EvidenceTypeType">
+		<xs:sequence>
+			<xs:element name="EvidenceTypeClassification" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<!-- Rename Identifier into EvidenceTypeClassification - Remove Identifier - minOccurs="1" maxOccurs="1" -->
+			<xs:element ref="sdg:Title" minOccurs="1" maxOccurs="unbounded"/>
+			<!-- minOccurs="1" maxOccurs="unbounded" -->
+			<xs:element ref="sdg:Description" minOccurs="0" maxOccurs="unbounded"/>
+			<!-- minOccurs="1" maxOccurs="unbounded" => make it multilingual. Mandatory use in EB and EvidenceResponse now -->
+			<xs:element ref="sdg:Jurisdiction" minOccurs="0"/>
+			<!-- current specs say => minOccurs="0" maxOccurs="1" -->
+			<xs:element name="Distribution" type="sdg:DistributionType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CodeType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string"/>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<!-- Gender Type inherited from eIDAS -->
+	<xs:simpleType name="GenderType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Male"/>
+			<xs:enumeration value="Female"/>
+			<xs:enumeration value="Unspecified"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="DataServiceType">
+		<xs:sequence>
+			<xs:element ref="sdg:Identifier"/>
+			<!-- minOccurs="1" maxOccurs="1" -->
+
+			<!-- Codelist (List of supported protocols and versions) / Authority OOTS -->
+			<xs:element ref="sdg:ConformsTo"/>
+			<!-- minOccurs="1" maxOccurs="unbounded" -->
+			<xs:element name="Publisher" type="sdg:EvidenceProviderType"/>
+			<!-- minOccurs="1" maxOccurs="1" -->
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="DataServiceEvidenceTypeType">
+		<!-- Reintroduce min LOA Type -->
+		<xs:sequence>
+			<xs:element ref="sdg:Identifier" minOccurs="1" />
+			<!-- maxOccurs="1" -->
+
+			<!-- Codelist (URI In semantic Repository?) Same as Identifier of the EB Evidence Type / Authority; OOTS / Semantic Repository -->
+			<xs:element name="EvidenceTypeClassification" type="sdg:CodeType" minOccurs="1"
+				maxOccurs="1"/>
+			<xs:element ref="sdg:Title" minOccurs="1" maxOccurs="unbounded"/>
+			<!-- minOccurs="1" maxOccurs="unbounded" -->
+
+			<xs:element ref="sdg:Description" minOccurs="0" maxOccurs="unbounded"/>
+			<!-- minOccurs="0" maxOccurs="unbounded" -->
+
+			<xs:element name="DistributedAs" type="sdg:EvidenceTypeDistributionType" minOccurs="1"
+				maxOccurs="unbounded"/>
+
+			<xs:element name="AccessService" type="sdg:DataServiceType" minOccurs="0"
+				maxOccurs="unbounded"/>
+
+			<!-- Codelist (Reuse EIDAS Values?) / Authority: EIDAS or OOTS? -->
+			<xs:element name="AuthenticationLevelOfAssurance" type="sdg:CodeType" minOccurs="0"/>
+			<!-- maxOccurs="1" -->
+
+			<!-- Evidence Provider Discovery Filters -->
+			<xs:element ref="sdg:EvidenceProviderJurisdictionDetermination" minOccurs="0"/>
+			<xs:element ref="sdg:EvidenceProviderClassification"  minOccurs="0" maxOccurs="unbounded"/>
+
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="JurisdictionDeterminationType">
+		<xs:sequence>
+			<xs:element name="JurisdictionContextId" type="sdg:CodeType" minOccurs="1" maxOccurs="unbounded"/>
+			<!-- Is maxOccurs="unbounded" correct? Answer No, Change to maxOccurs="1"   -->
+			<xs:element name="JurisdictionContext" type="sdg:MultilingualStringType" minOccurs="1" maxOccurs="unbounded"/>
+
+			<!-- Codelist (Defined Levels (Country Code, NUTS0, NUTS1, NUTS2, NUTS3, LAU)) / Authority: OOTS -->
+			<xs:element name="JurisdictionLevel" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="EvidenceTypeDistributionType">
+		<xs:sequence>
+
+			<!-- Codelist / Authority: IANA or Publication's office -->
+			<xs:element name="Format" type="sdg:CodeType"/>
+			<!-- minOccurs="1" maxOccurs="1" -->
+
+			<!-- Codelist / Authority: OOTS (Semantic Repository) -->
+			<xs:element ref="sdg:ConformsTo" minOccurs="0"/>
+			<!-- maxOccurs="1"  -->
+
+			<!-- Codelist / Authority: OOTS (Semantic Repository) -->
+			<xs:element name="Transformation" type="xs:anyURI" minOccurs="0"/>
+			<!-- maxOccurs="1"  -->
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="EvidenceProviderType">
+		<xs:sequence>
+			<xs:element ref="sdg:Identifier"/>
+			<!-- minOccurs="1" maxOccurs="1" -->
+			<xs:element ref="sdg:Name"/>
+			<!-- minOccurs="1" maxOccurs="1" -->
+			<xs:element name="Address" type="sdg:AddressType"/>
+			<!-- minOccurs="1" maxOccurs="1" -->
+			<xs:element name="Jurisdiction" type="sdg:JurisdictionType"/>
+			<!-- minOccurs="1" maxOccurs="1" -->
+
+			<xs:element name="ClassificationConcept" type="sdg:InformationConceptType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="AddressType">
+		<xs:sequence>
+			<xs:element name="FullAddress" type="xs:string" minOccurs="0"/>
+			<!-- maxOccurs="1"  -->
+			<xs:element name="LocatorDesignator" type="xs:string" minOccurs="0"/>
+			<!-- maxOccurs="1"  -->
+			<xs:element name="PostCode" type="xs:string" minOccurs="0"/>
+			<!-- maxOccurs="1"  -->
+			<xs:element name="PostCityName" type="xs:string" minOccurs="0"/>
+			<!-- Keep and introduce.  -->
+			<xs:element name="Thoroughfare" type="xs:string" minOccurs="0"/>
+			<!-- maxOccurs="1"  -->
+			<!-- Codelist Country Code/ Authority: IANA or Publication's office -->
+			<xs:element name="AdminUnitLevel1" type="sdg:CodeType"/>
+			<!-- maxOccurs="1"  -->
+
+			<!-- Codelist NUTS / Authority: Publication's office -->
+			<xs:element name="AdminUnitLevel2" type="sdg:CodeType" minOccurs="0"/>
+			<!-- maxOccurs="1"  -->
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="DistributionType">
+		<xs:sequence>
+
+			<!-- Codelist  / Authority: IANA or Publication's office -->
+			<xs:element name="Format" type="sdg:CodeType"/>
+			<!-- minOccurs="1" maxOccurs="1" -->
+			<!-- Codelist  / Authority: IANA or Publication's office -->
+			<xs:element name="PackagingFormat" type="sdg:CodeType" minOccurs="0"/>
+			<!-- maxOccurs="1" -->
+			<!-- Codelist  / Authority: IANA or Publication's office -->
+			<xs:element name="CompressionFormat" type="sdg:CodeType" minOccurs="0"/>
+			<!-- maxOccurs="1" -->
+			<!-- Codelist  / Authority: IANA or Publication's office -->
+			<xs:element ref="sdg:Language" minOccurs="0" maxOccurs="unbounded"/>
+			<!-- minOccurs="1"  -->
+			<!-- Codelist  / Authority: OOTS Semantic Repository -->
+			<xs:element ref="sdg:ConformsTo" minOccurs="0"/>
+			<!-- maxOccurs="1" -->
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- implemented start and end date, following ubl -->
+	<xs:complexType name="PeriodType">
+		<xs:sequence>
+			<xs:element name="StartDate" type="xs:date"/>
+			<!-- minOccurs="1" maxOccurs="1" -->
+			<xs:element name="EndDate" type="xs:date"/>
+			<!-- minOccurs="1" maxOccurs="1" -->
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="PersonType">
+		<xs:sequence>
+			<xs:element name="LevelOfAssurance" type="sdg:CodeType" minOccurs="0" maxOccurs="1"/>
+			<!-- inOccurs="0"  -->
+			<xs:element ref="sdg:Identifier" minOccurs="0" maxOccurs="1"/>
+			<!-- Schematron rule warning  minOccurs="0" maxOccurs="1" -->
+			<xs:element name="FamilyName" type="xs:string" minOccurs="1"/>
+			<!-- maxOccurs="1" -->
+			<xs:element name="GivenName" type="xs:string" minOccurs="1"/>
+			<!-- maxOccurs="1" -->
+			<xs:element name="DateOfBirth" type="xs:date" minOccurs="1"/>
+			<!-- maxOccurs="1"; shouldn't it be xs:date type -->
+
+			<!-- EIDAS Optional MDS -->
+			<xs:element name="BirthName" type="xs:string" minOccurs="0"/>
+			<!-- maxOccurs="1" -->
+			<xs:element name="PlaceOfBirth" type="xs:string" minOccurs="0"/>
+			<!-- maxOccurs="1" -->
+			<xs:element name="CurrentAddress" type="sdg:AddressType" minOccurs="0"/>
+			<!-- maxOccurs="1" -->
+
+			<!-- Codelist  / Authority: eIDAS Attribute Profile v1.2 -->
+			<xs:element name="Gender" type="sdg:GenderType" minOccurs="0"/>
+			<!-- maxOccurs="1" -->
+
+			<xs:element name="SectorSpecificAttribute" type="sdg:AttributeKeyValuePairType"
+				minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="LegalPersonType">
+		<xs:sequence>
+			<xs:element name="LevelOfAssurance" type="sdg:CodeType" minOccurs="0" maxOccurs="1"/>
+			<!-- inOccurs="0" and include Business rule -->
+			<xs:element ref="sdg:Identifier" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="LegalPersonIdentifier" type="sdg:IdentifierType" minOccurs="0"
+				maxOccurs="1"/>
+			<!-- Schematron rule warning -->
+			<xs:element name="LegalName" type="xs:string" minOccurs="1"/>
+			<!-- maxOccurs="1" -->
+			<xs:element name="RegisteredAddress" type="sdg:AddressType" minOccurs="0"/>
+			<!-- maxOccurs="1" -->
+			<xs:element name="SectorSpecificAttribute" type="sdg:AttributeKeyValuePairType"
+				minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="IdentifierType">
+
+		<xs:simpleContent>
+			<xs:extension base="xs:normalizedString">
+				<!-- Codelist  / Authority: ISO, CEF EAS, Other? -->
+				<xs:attribute name="schemeID" type="xs:normalizedString"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:complexType name="MultilingualStringType">
+		<xs:simpleContent>
+			<xs:extension base="xs:normalizedString">
+				<!-- Codelist  / Authority: IANA or Publication's office -->
+				<xs:attribute name="lang" type="xs:normalizedString"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:complexType name="InformationConceptType">
+		<!-- Include this to Access Service. We Must further discuss this. I have included this to DSD specs but it makes more sense for the response, especially the supported Response Value  Please check! -->
+		<xs:sequence>
+			<xs:element name="Identifier" type="sdg:IdentifierType" maxOccurs="1"/>
+			<!-- minOccurs="1"  Shouldn't it be sdg:Identifier?-->
+
+			<!-- Codelist  / Authority: OOTS Semantic Repo or Specifications -->
+			<xs:element name="Type" type="sdg:CodeType" minOccurs="0" maxOccurs="1"/>
+			<!-- minOccurs="1"  Shouldn't it be Code?-->
+			<xs:element name="ValueExpression" type="xs:string" minOccurs="0"/>
+			<!-- maxOccurs="1"  -->
+			<xs:element name="Description" type="sdg:MultilingualStringType" minOccurs="0"
+				maxOccurs="unbounded"/>
+			<xs:element name="SupportedValue" type="sdg:SupportedValueType" minOccurs="0"
+				maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SupportedValueType">
+		<!-- Rephrase to "SupportedResponseValueType"  -->
+		<xs:choice>
+			<!-- Rephrase to "SupportedResponseValueType"  -->
+			<xs:element name="StringValue" type="xs:string"/>
+			<!-- minOccurs="0" maxOccurs="1"   -->
+			<xs:element name="DateValue" type="xs:date"/>
+			<!-- minOccurs="0" maxOccurs="1"  -->
+			<xs:element name="BooleanValue" type="xs:boolean"/>
+			<!-- minOccurs="0" maxOccurs="1"   -->
+			<!-- Should be extended with more. I made a propsal in DSD specs. Type that might be included: identfier.integer.decimal.duration.dateTime.date.time.Code,URL,Amount, https://docs.peppol.eu/pracc/espd/codelist/ResponseDataType/  -->
+		</xs:choice>
+	</xs:complexType>
+
+	<!-- Attribute Key Value Pair, Mimicking the eIDAS structure -->
+	<xs:complexType name="AttributeKeyValuePairType">
+		<xs:sequence>
+			<xs:element name="AttributeName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="AttributeURI" type="xs:anyURI" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="AttributeValue" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="EvidenceType">
+		<xs:sequence>
+			<xs:element ref="sdg:Identifier"/>
+			<!-- minOccurs="1" maxOccurs="1" -->
+			<xs:element name="IsAbout" minOccurs="1">
+				<!-- maxOccurs="1" -->
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="NaturalPerson" type="sdg:PersonType"/>
+						<!-- minOccurs="0" maxOccurs="1" -->
+						<xs:element name="LegalPerson" type="sdg:LegalPersonType"/>
+						<!-- minOccurs="0" maxOccurs="1" -->
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="IssuingAuthority" type="sdg:AgentType" minOccurs="1"/>
+			<!--  maxOccurs="1" -->
+			<xs:element name="IsConformantTo" type="sdg:EvidenceTypeType"/>
+			<!-- minOccurs="1" maxOccurs="1" -->
+			<xs:element name="IssuingDate" type="xs:date"/>
+			<!-- minOccurs="1" maxOccurs="1" -->
+			<xs:element name="Distribution" type="sdg:DistributionType"/>
+			<!-- minOccurs="1" maxOccurs="1" -->
+			<xs:element name="ValidityPeriod" type="sdg:PeriodType" minOccurs="0"/>
+			<!--  maxOccurs="1" -->
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<!-- Elements typically used in Regrep Messages. -->
+	<!-- Codelist  / Authority: ISO or Publication's office -->
+	<xs:element name="Language" type="sdg:CodeType"/>
+	<xs:element name="Identifier" type="sdg:IdentifierType"/>
+	<xs:element name="Description" type="sdg:MultilingualStringType"/>
+	<xs:element name="Title" type="sdg:MultilingualStringType"/>
+	<xs:element name="Name" type="sdg:MultilingualStringType"/>
+
+	<xs:element name="Jurisdiction" type="sdg:JurisdictionType"/>
+
+	<!-- Codelist  / Authority: OOTS Semantic Repo -->
+	<xs:element name="ConformsTo" type="xs:anyURI"/>
+	<xs:element name="Person" type="sdg:PersonType"/>
+	<xs:element name="LegalPerson" type="sdg:LegalPersonType"/>
+	<xs:element name="EvidenceType" type="sdg:EvidenceTypeType"/>
+	<xs:element name="Agent" type="sdg:AgentType"/>
+	<xs:element name="EvidenceRequester" type="sdg:AgentType"/>
+	<xs:element name="EvidenceProvider" type="sdg:AgentType"/>
+
+	<xs:element name="Evidence" type="sdg:EvidenceType"/>
+
+	<xs:element name="DataServiceEvidenceType" type="sdg:DataServiceEvidenceTypeType"/>
+	<xs:element name="Requirement" type="sdg:RequirementType"/>
+	<xs:element name="InformationConcept" type="sdg:InformationConceptType"/>
+
+	<xs:element name="EvidenceProviderJurisdictionDetermination"
+		type="sdg:JurisdictionDeterminationType"/>
+	<xs:element name="EvidenceProviderClassification" type="sdg:InformationConceptType"/>
+
+	<!-- LCM required elements -->
+	<xs:element name="AccessService" type="sdg:DataServiceType"/>
+
+</xs:schema>

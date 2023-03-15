@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <birthEvidence>
+      <title>Birth Certificate</title>
+      <citizenship>German</citizenship>
+      <dateOfBirth>Date</dateOfBirth>
+      <familyName>Smith</familyName>
+      <givenName>John</givenName>
+      <issueDate>23.05.2000</issueDate>
+      <issuingAuthority>DE Population Registry</issuingAuthority>
+      <motherName>Smith Ana</motherName>
+      <fatherName>Smith Jim</fatherName>
+      <placeOfBirth>
+         <area>NRW</area>
+         <city>Dusseldorf</city>
+         <country>Germany</country>
+      </placeOfBirth>
+      <sex>M</sex>
+   </birthEvidence>
+</root>

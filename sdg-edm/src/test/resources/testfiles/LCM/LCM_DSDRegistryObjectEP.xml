@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lcm:SubmitObjectsRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:4.0"
+    xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0"
+    xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0"
+    xmlns:lcm="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:4.0" xmlns:sdg="http://data.europa.eu/p4s"
+    xmlns:xlink="http://www.w3.org/1999/xlink" id="1234-5678-9012-4543">
+    <rim:RegistryObjectList>
+        <rim:RegistryObject id="urn:uuid:a1be6e74-bbbb-4444-b04c-0376f367b8fd">
+            <rim:Slot name="DataServiceEvidenceProvider">
+                <rim:SlotValue xsi:type="rim:AnyValueType">
+                    <AccessService>
+                        <ConformsTo>oots:edm-v1.0</ConformsTo>
+                        <Identifier schemeID="urn:oasis:names:tc:ebcore:partyid-type:iso6523:0060"
+                            >8889909099 </Identifier>
+                        <Publisher>
+                            <!-- The Evidence Provider Information -->
+                            <Address>
+                                <!-- NUTS Code -->
+                                <AdminUnitLevel2>MS77</AdminUnitLevel2>
+                            </Address>
+                            <ClassificationConcepts>
+                                <ClassificationConcept>
+                                    <Identifier>TypeOfInsurance</Identifier>
+                                    <SupportedValue>
+                                        <StringValue>public</StringValue>
+                                    </SupportedValue>
+                                </ClassificationConcept>
+                            </ClassificationConcepts>
+
+                            <Identifier schemeID="1204">Ev-2</Identifier>
+
+                            <Jurisdiction>
+                                <AdminUnitLevel1>MS</AdminUnitLevel1>
+                                <!-- NUTS Code -->
+                                <AdminUnitLevel2>MS77</AdminUnitLevel2>
+                            </Jurisdiction>
+
+                            <Name>Evidence Provider 2</Name>
+
+                        </Publisher>
+                    </AccessService>
+                </rim:SlotValue>
+            </rim:Slot>
+            <rim:Classification classificationNode="EvidenceProvider"
+                classificationScheme="urn:fdc:oots:classification:dsd"
+                id="urn:uuid:d45aa619-2d90-4d6c-ae59-b9ca4e6a5873"/>
+        </rim:RegistryObject>
+    </rim:RegistryObjectList>
+</lcm:SubmitObjectsRequest>

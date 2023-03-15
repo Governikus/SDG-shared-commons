@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lcm:SubmitObjectsRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:4.0"
+    xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0"
+    xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0"
+    xmlns:lcm="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:4.0"
+    xmlns:sdg="http://data.europa.eu/p4s"
+    id="1234-5678-9012-4543">
+    <rim:RegistryObjectList>   
+        <rim:RegistryObject id="urn:uuid:a1be6e74-e9ba-4d44-b04c-0376f367b8fd">
+            <rim:Slot name="DataServiceEvidenceType">
+                <rim:SlotValue xsi:type="rim:AnyValueType">
+                    <sdg:DataServiceEvidenceType>
+                        
+                        <sdg:Identifier>ID-123</sdg:Identifier>
+                        <sdg:EvidenceTypeClassification>CertificateOfBirth</sdg:EvidenceTypeClassification>
+                        <sdg:Title>Certificate Of Birth</sdg:Title>
+                        <sdg:DistributedAs>
+                            <sdg:Format>application/pdf</sdg:Format>
+                        </sdg:DistributedAs>
+                        
+                        <sdg:EvidenceProviderJurisdictionDetermination>
+                            <sdg:JurisdictionContextId>PlaceOfBirthIdentifier</sdg:JurisdictionContextId>
+                            <sdg:JurisdictionContext>Place Of Birth</sdg:JurisdictionContext>
+                            <sdg:JurisdictionLevel>https://sr.ec.europa.eu/codelist/locationLevel/LAU</sdg:JurisdictionLevel>
+                        </sdg:EvidenceProviderJurisdictionDetermination>                      
+                    </sdg:DataServiceEvidenceType>
+                </rim:SlotValue>
+            </rim:Slot>            
+            <rim:Classification id="123" classificationScheme="urn:fdc:oots:classification:dsd" classificationNode="DataServiceEvidenceType"/>
+        </rim:RegistryObject>
+    </rim:RegistryObjectList>
+</lcm:SubmitObjectsRequest>

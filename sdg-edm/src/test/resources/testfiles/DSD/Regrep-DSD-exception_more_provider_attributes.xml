@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<query:QueryResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:4.0"
+  xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0"
+  xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0" xmlns:sdg="http://data.europa.eu/p4s"
+  xmlns:xlink="http://www.w3.org/1999/xlink" requestId="c4369c4d-740e-4b64-80f0-7b209a66d629"
+  status="urn:oasis:names:tc:ebxml-regrep:ResponseStatusType:Failure">
+
+  <!-- Additional elements describing the response -->
+
+  <rs:Exception xsi:type="rs:ObjectNotFoundExceptionType" severity="FAILURE"
+    message="The query requires the included extra attributes to be provided by the user."
+    code="DSD:ERR:0005">
+
+    <rim:Slot name="DataServiceEvidenceType">
+      <rim:SlotValue xsi:type="rim:CollectionValueType">
+        <sdg:DataServiceEvidenceType xmlns:sdg="http://data.europa.eu/p4s">
+          <sdg:Identifier>DSEV-ID1</sdg:Identifier>
+          <sdg:EvidenceTypeClassification>CertificateOfInsurance</sdg:EvidenceTypeClassification>
+          <sdg:Title>Certificate Of Insurance</sdg:Title>
+          <sdg:Description> Certificate Of Insurance provided by the regional service providers of
+            Region A of MS C. Evidence Provider Jurisdiction is resolved at Municipality level,
+            where the company has its office headquarters. Evidence providers are classified
+            according to the type of insurance the Evidence Subject has. </sdg:Description>
+          <sdg:DistributedAs>
+            <sdg:Format>application/pdf</sdg:Format>
+          </sdg:DistributedAs>
+        </sdg:DataServiceEvidenceType>
+      </rim:SlotValue>
+    </rim:Slot>
+
+    <!-- Jurisdiction Mapping Requests -->
+    <rim:Slot name="JurisdictionDetermination">
+      <rim:SlotValue xsi:type="rim:AnyValueType">
+        <sdg:EvidenceProviderJurisdictionDetermination>
+          <sdg:JurisdictionContextId>PlaceOfBirthIdentifier</sdg:JurisdictionContextId>
+          <sdg:JurisdictionContext>Place Of Birth</sdg:JurisdictionContext>
+          <sdg:JurisdictionLevel>https://sr.ec.europa.eu/codelist/locationLevel/LAU</sdg:JurisdictionLevel>
+        </sdg:EvidenceProviderJurisdictionDetermination>
+      </rim:SlotValue>
+    </rim:Slot>
+
+    <rim:Slot name="UserRequestedClassificationConcepts">
+      <rim:SlotValue xsi:type="rim:CollectionValueType" collectionType="urn:oasis:names:tc:ebxml-regrep:CollectionType:Set">
+        <rim:Element xsi:type="rim:AnyValueType">
+            <sdg:EvidenceProviderClassification>
+                <sdg:Identifier>TypeOfInsurance</sdg:Identifier>
+                <sdg:Type>String</sdg:Type>
+                <sdg:ValueExpression>^\d{5}$</sdg:ValueExpression>
+                <sdg:Description lang="en">Type of insurance</sdg:Description>
+            </sdg:EvidenceProviderClassification>
+          </rim:Element>
+      </rim:SlotValue>
+ 
+        <sdg:EvidenceProviderClassification>
+          <sdg:Identifier>SomeOtherCriterion</sdg:Identifier>
+          <sdg:Type>String</sdg:Type>
+          <sdg:Description lang="en">Some Other Criterion</sdg:Description>
+        </sdg:EvidenceProviderClassification>
+      
+
+    </rim:Slot>
+  </rs:Exception>
+</query:QueryResponse>

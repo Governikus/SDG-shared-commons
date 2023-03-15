@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Messaging mustUnderstand="false" xmlns="http://docs.oasis-open.org/ebxml-msg/ebms/v3.0/ns/core/200704/">
+    <UserMessage>
+        <PartyInfo>
+            <From>
+                <PartyId type="urn:oasis:names:tc:ebcore:partyid-type:unregistered:oots-simulator"
+                    >urn:oasis:names:tc:ebcore:partyid-type:unregistered:C2</PartyId>
+                <Role>http://sdg.europa.eu/edelivery/gateway</Role>
+            </From>
+            <To>
+                <PartyId type="urn:oasis:names:tc:ebcore:partyid-type:unregistered:oots-simulator"
+                    >urn:oasis:names:tc:ebcore:partyid-type:unregistered:C3</PartyId>
+                <Role>http://sdg.europa.eu/edelivery/gateway</Role>
+            </To>
+        </PartyInfo>
+        <CollaborationInfo>
+            <Service type="urn:oasis:names:tc:ebcore:ebrs:ebms:binding:1.0">QueryManager</Service>
+            <Action>ExecuteQueryRequest</Action>
+            <ConversationId>c73b7fdc-1ab0-4b1e-b295-ac9e4a35d764</ConversationId>
+        </CollaborationInfo>
+        <MessageProperties>
+            <Property name="originalSender">urn:oasis:names:tc:ebcore:partyid-type:unregistered:C1</Property>
+            <Property name="finalRecipient">urn:oasis:names:tc:ebcore:partyid-type:unregistered:C4</Property>
+        </MessageProperties>
+        <PayloadInfo>
+            <PartInfo href="cid:regreprequest@example.oots.eu">
+                <Schema/>
+                <PartProperties>
+                    <Property name="MimeType">application/x-ebrs+xml</Property>
+                    <Property name="PayloadName">request.xml</Property>
+                </PartProperties>
+            </PartInfo>
+        </PayloadInfo>
+    </UserMessage>
+</Messaging>

@@ -1,0 +1,26 @@
+<rim:RegistryObject id="urn:uuid:a1be6e74-e9ba-4d44-b04c-0376f367b8fd"
+    xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0"
+    xmlns:sdg="http://data.europa.eu/p4s"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <rim:Slot name="EvidenceType">
+        <rim:SlotValue xsi:type="rim:AnyValueType">
+            <sdg:EvidenceType >
+                <sdg:EvidenceTypeClassification>Classification Code</sdg:EvidenceTypeClassification>
+                <sdg:Title lang="en">Certificate of Birth</sdg:Title>
+                <sdg:Title lang="de">Geburtsurkunde</sdg:Title>
+                <sdg:Description>certificado de nacimiento</sdg:Description>
+                <sdg:Jurisdiction>
+                    <!-- ISO code -->
+                    <sdg:AdminUnitLevel1>ES</sdg:AdminUnitLevel1>
+                    <!-- NUTS Code -->
+                    <sdg:AdminUnitLevel2>ES211</sdg:AdminUnitLevel2>
+                    <!-- LAU Code -->
+                    <sdg:AdminUnitLevel3>01001</sdg:AdminUnitLevel3>
+                </sdg:Jurisdiction>
+            </sdg:EvidenceType>
+        </rim:SlotValue>
+    </rim:Slot>
+
+    <rim:Classification id="urn:uuid:d45aa619-2d90-4d6c-ae59-b9ca4e6a5873"
+        classificationScheme="urn:fdc:oots:classification:eb" classificationNode="EvidenceType"/>
+</rim:RegistryObject>
