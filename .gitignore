@@ -1,0 +1,7 @@
+.settings/
+conf/
+target/
+
+.classpath
+.project
+zz
