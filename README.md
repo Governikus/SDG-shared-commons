@@ -1,7 +1,7 @@
 # SDG Shared Commons
 
-This repository contains the shared common components to implement the SDG (Single Digital Gateway) components.
-That includes components for an SDG Connector as a component to perform eDelivery exchanges using AS4 as well as supporting components that might be used by Intermediary Platforms (IPs).
+This repository contains the shared common components to implement the SDG (Single Digital Gateway) connecting components.
+That includes components for an SDG Connector (AP) as a component to perform eDelivery exchanges using AS4 as well as supporting components that might be used by Intermediary Platforms (IPs).
 
 ## License
 
