@@ -103,7 +103,7 @@
           </execution>
         </executions>
         <configuration>
-          <schemaDirectory>${basedir}/src/main/resources/schemas/sdg</schemaDirectory>
+          <schemaDirectory>${basedir}/src/main/resources/external/schemas/sdg</schemaDirectory>
           <bindingDirectory>${basedir}/src/main/jaxb</bindingDirectory>
           <extension>true</extension>
           <strict>false</strict>

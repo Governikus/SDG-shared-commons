@@ -22,7 +22,7 @@ import jakarta.xml.bind.JAXBElement;
  */
 public abstract class AbstractSdgJaxbMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
 {
-  private static final List <ClassPathResource> XSDS = new CommonsArrayList <> (new ClassPathResource ("schemas/sdg/SDG-GenericMetadataProfile-v0.99-SNAPSHOT.xsd",
+  private static final List <ClassPathResource> XSDS = new CommonsArrayList <> (new ClassPathResource ("external/schemas/sdg/SDG-GenericMetadataProfile-v0.99-SNAPSHOT.xsd",
                                                                                                        CSdgEdm.getCL ()));
 
   protected AbstractSdgJaxbMarshaller (@Nonnull final Class <JAXBTYPE> aType,

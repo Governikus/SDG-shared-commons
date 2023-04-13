@@ -13,7 +13,7 @@
     <xjc:javaType name="java.time.LocalTime" xmlType="xsd:time" adapter="com.helger.jaxb.adapter.AdapterLocalTime" />
     <xjc:javaType name="java.time.Duration" xmlType="xsd:duration" adapter="com.helger.jaxb.adapter.AdapterDuration" />
   </globalBindings>
-  <bindings schemaLocation="../resources/schemas/sdg/SDG-GenericMetadataProfile-v0.99-SNAPSHOT.xsd">
+  <bindings schemaLocation="../resources/external/schemas/sdg/SDG-GenericMetadataProfile-v0.99-SNAPSHOT.xsd">
     <schemaBindings>
       <package name="com.governikus.sdg.edm.jaxb" />
     </schemaBindings>

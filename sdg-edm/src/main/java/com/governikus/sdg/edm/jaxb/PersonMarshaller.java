@@ -1,8 +1,5 @@
 package com.governikus.sdg.edm.jaxb;
 
-import com.governikus.sdg.edm.jaxb.ObjectFactory;
-import com.governikus.sdg.edm.jaxb.PersonType;
-
 public class PersonMarshaller extends AbstractSdgJaxbMarshaller <PersonType>
 {
   public PersonMarshaller ()

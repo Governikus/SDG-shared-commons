@@ -22,6 +22,11 @@ import com.helger.schematron.xslt.SchematronResourceXSLT;
 @Immutable
 public final class SdgSchematronValidator
 {
+  /**
+   * A minimum class that encapsulates specific Schematron rules.
+   *
+   * @author Philip Helger
+   */
   @Immutable
   public static final class Validator
   {
@@ -42,11 +47,11 @@ public final class SdgSchematronValidator
     }
   }
 
-  private static final ClassPathResource XSLT_EVIDENCE_EXCEPTION = new ClassPathResource ("xslt/evidence_exception.xslt",
+  private static final ClassPathResource XSLT_EVIDENCE_EXCEPTION = new ClassPathResource ("external/xslt/evidence_exception.xslt",
                                                                                           CSdgEdm.getCL ());
-  private static final ClassPathResource XSLT_EVIDENCE_REQUEST = new ClassPathResource ("xslt/evidence_request.xslt",
+  private static final ClassPathResource XSLT_EVIDENCE_REQUEST = new ClassPathResource ("external/xslt/evidence_request.xslt",
                                                                                         CSdgEdm.getCL ());
-  private static final ClassPathResource XSLT_EVIDENCE_RESPONSE = new ClassPathResource ("xslt/evidence_response.xslt",
+  private static final ClassPathResource XSLT_EVIDENCE_RESPONSE = new ClassPathResource ("external/xslt/evidence_response.xslt",
                                                                                          CSdgEdm.getCL ());
 
   private SdgSchematronValidator ()
